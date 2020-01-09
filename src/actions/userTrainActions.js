@@ -1,5 +1,5 @@
 // const url = "http://localhost:3001/api/v1/trains";
-const url = "https://shrouded-atoll-15773.herokuapp.com/api/v1";
+const url = "https://shrouded-atoll-15773.herokuapp.com/api/v1/trains";
 
 export const getUserTrains = () => {
   let data = {
