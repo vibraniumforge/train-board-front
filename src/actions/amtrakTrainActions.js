@@ -1,4 +1,5 @@
 // const url = "http://localhost:3001/api/v1";
+const url = "https://shrouded-atoll-15773.herokuapp.com/";
 
 export const getAmtrakTrains = station => {
   let data = {
@@ -10,7 +11,7 @@ export const getAmtrakTrains = station => {
     }
   };
   return dispatch => {
-    fetch(`resources/amtrak-station/${station}`, data)
+    fetch(`${url}/amtrak-station/${station}`, data)
       .then(res => res.json())
       .then(res =>
         dispatch({
@@ -32,7 +33,7 @@ export const getAmtrakStation = station => {
     }
   };
   return dispatch => {
-    fetch(`resources/amtrak-station-search/${station}`, data)
+    fetch(`${url}/amtrak-station-search/${station}`, data)
       .then(res => res.text())
       .then(res => dispatch({ type: "GET_AMTRAK_STATION", payload: res }))
       .catch(err => console.log("Error in getAmtrakStation=", err));

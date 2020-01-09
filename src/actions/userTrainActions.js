@@ -1,4 +1,5 @@
-const url = "http://localhost:3001/api/v1/trains";
+// const url = "http://localhost:3001/api/v1/trains";
+const url = "https://shrouded-atoll-15773.herokuapp.com/";
 
 export const getUserTrains = () => {
   let data = {
@@ -11,7 +12,7 @@ export const getUserTrains = () => {
     }
   };
   return dispatch => {
-    fetch(`resources`, data)
+    fetch(`${url}`, data)
       .then(res => res.json())
       .then(res => dispatch({ type: "GET_USER_TRAINS", payload: res.data }))
       .catch(err => console.log("Error in getUserTrains=", err));
@@ -29,7 +30,7 @@ export const getTrainById = id => {
     }
   };
   return dispatch => {
-    fetch(`resources/${id}`, data)
+    fetch(`${url}/${id}`, data)
       .then(res => res.json())
       .then(res =>
         dispatch({
@@ -53,7 +54,7 @@ export const createTrain = train => {
     body: JSON.stringify({ train })
   };
   return dispatch => {
-    fetch(`resources`, data)
+    fetch(`${url}`, data)
       .then(res => {
         if (res.ok) {
           res.json().then(res => {
@@ -90,7 +91,7 @@ export const updateTrain = (id, train) => {
     body: JSON.stringify({ train })
   };
   return dispatch => {
-    fetch(`resources/${id}`, data)
+    fetch(`${url}/${id}`, data)
       .then(res => {
         if (res.ok) {
           res.json().then(res => {
