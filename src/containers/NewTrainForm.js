@@ -32,8 +32,6 @@ class NewTrainForm extends Component {
     const newTrain = this.state;
     const promise1 = this.props.createTrain(newTrain);
     Promise.all([promise1]).then(() => {
-      console.log(this.props.trainErrors.length);
-      console.log(this.isValid());
       if (this.isValid()) {
         this.clearForm();
         this.props.history.push("/view_user_trains");
