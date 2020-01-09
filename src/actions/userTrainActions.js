@@ -11,7 +11,7 @@ export const getUserTrains = () => {
     }
   };
   return dispatch => {
-    fetch(`${url}`, data)
+    fetch(`resources`, data)
       .then(res => res.json())
       .then(res => dispatch({ type: "GET_USER_TRAINS", payload: res.data }))
       .catch(err => console.log("Error in getUserTrains=", err));
@@ -29,7 +29,7 @@ export const getTrainById = id => {
     }
   };
   return dispatch => {
-    fetch(`${url}/${id}`, data)
+    fetch(`resources/${id}`, data)
       .then(res => res.json())
       .then(res =>
         dispatch({
@@ -53,7 +53,7 @@ export const createTrain = train => {
     body: JSON.stringify({ train })
   };
   return dispatch => {
-    fetch(`${url}`, data)
+    fetch(`resources`, data)
       .then(res => {
         if (res.ok) {
           res.json().then(res => {
@@ -90,7 +90,7 @@ export const updateTrain = (id, train) => {
     body: JSON.stringify({ train })
   };
   return dispatch => {
-    fetch(`${url}/${id}`, data)
+    fetch(`resources/${id}`, data)
       .then(res => {
         if (res.ok) {
           res.json().then(res => {
@@ -135,7 +135,7 @@ export const deleteTrain = id => {
     }
   };
   return dispatch => {
-    fetch(`${url}/${id}`, data)
+    fetch(`resources/${id}`, data)
       .then(res => res.json())
       .then(res =>
         dispatch({
