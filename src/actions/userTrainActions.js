@@ -136,7 +136,7 @@ export const deleteTrain = id => {
     }
   };
   return dispatch => {
-    fetch(`resources/${id}`, data)
+    fetch(`${url}/${id}`, data)
       .then(res => res.json())
       .then(res =>
         dispatch({
