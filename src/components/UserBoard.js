@@ -52,7 +52,7 @@ class UserBoard extends Component {
 
   render() {
     const trainsInfo =
-      this.props.userTrains &&
+      this.props.userTrains.length > 0 &&
       this.props.userTrains.map(train => {
         return train.trainno.trim() ? (
           <tr key={train.id}>
