@@ -17,11 +17,12 @@ class AmtrakSearchBoard extends Component {
             <td>{train.trainno}</td>
             <td>{nameHelper(train.service)}</td>
             <td>{train.destination}</td>
+            <td>{train.origin}</td>
             <td>{timeHelper(train.scheduled)}</td>
             <td>{timeHelper(train.scheduled24)}</td>
             <td>{timeHelper(train.newtime)}</td>
             <td>{timeHelper(train.newtime24)}</td>
-            <td>{train.origin}</td>
+
             <td className={remarksHelper(train.remarks_boarding)}>
               {nameHelper(train.remarks_boarding)}
             </td>
@@ -38,11 +39,11 @@ class AmtrakSearchBoard extends Component {
               <th>Train Number</th>
               <th>Train Name</th>
               <th>Destination</th>
+              <th>Origin</th>
               <th>Scheduled Time</th>
               <th>Scheduled - 24h</th>
               <th>New Time</th>
               <th>New Time - 24h</th>
-              <th>Origin</th>
               <th>Remarks</th>
             </tr>
           </thead>
