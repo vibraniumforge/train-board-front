@@ -8,7 +8,7 @@ class Home extends Component {
           An app with a Ruby on Rails backend and a React and Redux front end.
           This app simulates a train board at your station of choosing. It can
           also save and display trains that you enter on your own train board.
-          Some seeds included.
+          Some seeds included. Choose one of the options above to begin.
         </p>
       </div>
     );
