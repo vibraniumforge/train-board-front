@@ -9,7 +9,7 @@ import AmtrakStationSearch from "./containers/AmtrakStationSearch";
 import AmtrakStationSelect from "./containers/AmtrakStationSelect";
 import NewTrainForm from "./containers/NewTrainForm";
 import EditTrainForm from "./containers/EditTrainForm";
-import ViewUserTrains from "./components/ViewUserTrains";
+import ViewUserTrains from "./containers/ViewUserTrains";
 
 export default (
   <Router>
