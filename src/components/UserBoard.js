@@ -4,40 +4,45 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import { nameHelper } from "../helpers/nameHelper";
+import { serviceHelper } from "../helpers/serviceHelper";
 import { remarksHelper } from "../helpers/remarksHelper";
 import { timeHelper } from "../helpers/timeHelper";
+import { stationHelper } from "../helpers/stationHelper";
+
 import {
   getTrainById,
   updateTrain,
   deleteTrain
 } from "../actions/userTrainActions";
 
+import Time from "./Time";
 import LikeButton from "./LikeButton";
 
 class UserBoard extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      time: new Date().toLocaleTimeString("en-US"),
-      time24h: new Date().toLocaleTimeString("en-GB")
-    };
-  }
-
   componentDidMount() {
-    this.intervalID = setInterval(() => this.tick(), 1000);
+    this.interval1 = setInterval(() => this.blink(), 1000);
   }
 
   componentWillUnmount() {
-    clearInterval(this.intervalID);
+    clearInterval(this.interval1);
   }
 
-  tick() {
-    this.setState({
-      time: new Date().toLocaleTimeString("en-US"),
-      time24h: new Date().toLocaleTimeString("en-GB")
-    });
+  blink() {
+    const boardingTrains = document.getElementsByClassName("boarding");
+    if (boardingTrains.length > 0) {
+      Array.from(boardingTrains).forEach(train => {
+        train.classList.toggle("hidden");
+      });
+    }
   }
+
+  shouldComponentUpdate = nextProps => {
+    if (this.props.userTrains === nextProps.userTrains) {
+      return false;
+    } else {
+      return true;
+    }
+  };
 
   onDeleteTrain = e => {
     e.preventDefault();
@@ -57,9 +62,9 @@ class UserBoard extends Component {
         return train.trainno.trim() ? (
           <tr key={train.id}>
             <td>{train.trainno}</td>
-            <td>{nameHelper(train.service)}</td>
-            <td>{train.destination}</td>
-            <td>{train.origin}</td>
+            <td>{serviceHelper(train.service)}</td>
+            <td>{stationHelper(train.destination)}</td>
+            <td>{stationHelper(train.origin)}</td>
             <td>{timeHelper(train.scheduled)}</td>
             <td>{timeHelper(train.scheduled24)}</td>
             <td>{timeHelper(train.newtime)}</td>
@@ -98,13 +103,17 @@ class UserBoard extends Component {
         <div>
           <table>
             <thead>
+              <Time
+                stationName={"My Train Board"}
+                timeZone={this.props.timeZone}
+              />
               <tr>
-                <th colSpan="2">{this.state.time}</th>
+                {/* <th colSpan="2">{this.state.time}</th>
                 <th />
                 <th colSpan="3">My Train Board</th>
                 <th />
                 <th />
-                <th colSpan="2">{this.state.time24h}</th>
+                <th colSpan="2">{this.state.time24h}</th> */}
               </tr>
               <tr>
                 <th>Train Number</th>
