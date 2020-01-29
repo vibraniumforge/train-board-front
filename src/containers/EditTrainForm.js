@@ -71,6 +71,11 @@ class TrainForm extends Component {
     return false;
   };
 
+  cancel = () => {
+    this.clearForm();
+    this.props.history.push("/view_user_trains");
+  };
+
   clearForm = () => {
     this.setState({
       destination: "",
@@ -96,6 +101,11 @@ class TrainForm extends Component {
               type="text"
               id="train-destination"
               name="destination"
+              className={
+                !this.state.destination && this.props.trainErrors.length > 0
+                  ? "errors"
+                  : ""
+              }
               placeholder="Destination city"
               value={this.state.destination}
               onChange={this.handleChange}
@@ -105,6 +115,12 @@ class TrainForm extends Component {
               type="text"
               id="new-time"
               name="newtime"
+              className={
+                ![0, 4].includes(this.state.newtime.length) &&
+                this.props.trainErrors.length > 0
+                  ? "errors"
+                  : ""
+              }
               placeholder="New Time (if late). Format HHMM"
               value={this.state.newtime}
               onChange={this.handleChange}
@@ -114,6 +130,12 @@ class TrainForm extends Component {
               type="text"
               id="new-time-24"
               name="newtime24"
+              className={
+                ![0, 4].includes(this.state.newtime24.length) &&
+                this.props.trainErrors.length > 0
+                  ? "errors"
+                  : ""
+              }
               placeholder="New Time HHMM 24h (if late)."
               value={this.state.newtime24}
               onChange={this.handleChange}
@@ -124,6 +146,11 @@ class TrainForm extends Component {
               type="text"
               id="train-origin"
               name="origin"
+              className={
+                !this.state.origin && this.props.trainErrors.length > 0
+                  ? "errors"
+                  : ""
+              }
               placeholder="Train Origin city"
               value={this.state.origin}
               onChange={this.handleChange}
@@ -133,6 +160,12 @@ class TrainForm extends Component {
               type="text"
               id="train-remarks"
               name="remarks_boarding"
+              className={
+                !this.state.remarks_boarding &&
+                this.props.trainErrors.length > 0
+                  ? "errors"
+                  : ""
+              }
               placeholder="Remarks"
               value={this.state.remarks_boarding}
               onChange={this.handleChange}
@@ -142,6 +175,11 @@ class TrainForm extends Component {
               type="text"
               id="train-scheduled-arrival"
               name="scheduled"
+              className={
+                !this.state.scheduled && this.props.trainErrors.length > 0
+                  ? "errors"
+                  : ""
+              }
               placeholder="Scheduled Arrival. Format HHMM"
               value={this.state.scheduled}
               onChange={this.handleChange}
@@ -152,6 +190,11 @@ class TrainForm extends Component {
               type="text"
               id="train-scheduled-arrival-24"
               name="scheduled24"
+              className={
+                !this.state.scheduled24 && this.props.trainErrors.length > 0
+                  ? "errors"
+                  : ""
+              }
               placeholder="Scheduled Arrival 24h. Format HHMM"
               value={this.state.scheduled24}
               onChange={this.handleChange}
@@ -161,6 +204,11 @@ class TrainForm extends Component {
               type="text"
               id="train-service"
               name="service"
+              className={
+                !this.state.service && this.props.trainErrors.length > 0
+                  ? "errors"
+                  : ""
+              }
               placeholder="Service Name"
               value={this.state.service}
               onChange={this.handleChange}
@@ -170,6 +218,11 @@ class TrainForm extends Component {
               type="text"
               id="train-number"
               name="trainno"
+              className={
+                !this.state.trainno && this.props.trainErrors.length > 0
+                  ? "errors"
+                  : ""
+              }
               placeholder="Number"
               value={this.state.trainno}
               onChange={this.handleChange}
@@ -187,10 +240,18 @@ class TrainForm extends Component {
           <button
             className="clear-btn"
             type="button"
-            id="clear"
+            id="clear-btn"
             onClick={this.clearForm}
           >
             Clear
+          </button>
+          <button
+            className="cancel-btn"
+            type="button"
+            id="cancel"
+            onClick={this.cancel}
+          >
+            Cancel
           </button>
         </form>
         {this.props.trainErrors.length > 0 ? (
