@@ -37,13 +37,13 @@ li a {
   color: red;
 }
 
+li a:hover {
+  background-color: powderblue;
+}
+
 select {
   font-weight: bold;
   font-size: 12px;
-}
-
-li a:hover {
-  background-color: powderblue;
 }
 
 .green {
@@ -87,16 +87,19 @@ form input {
   height: 50px;
   font-size: 16px;
   margin: 10px;
-  border: 20px navy;
+  border: 20px transparent;
+  font-weight: bold;
 }
 
 #new-train {
   color: yellow;
+  font-weight: bold;
   background-color: black;
 }
 
 #edit-train {
   color: yellow;
+  font-weight: bold;
   background-color: black;
 }
 
@@ -128,10 +131,15 @@ textarea {
 .board-button {
   color: yellow;
   background-color: black;
+  font-weight: bold;
   border: none;
 }
 
-#searchBtn {
+button {
+  cursor: pointer;
+}
+
+#search-btn {
   margin: 10px;
   background-color: navy;
   color: red;
@@ -152,7 +160,22 @@ textarea {
   font-size: 20px;
 }
 
-.display-item {
+.cancel-btn {
+  margin: 10px;
+  background-color: red;
+  color: navy;
+  font-size: 20px;
+}
+
+.errors {
+  border: 5px solid red;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+/* .display-item {
   color: yellow;
   background-color: black;
-}
+} */
