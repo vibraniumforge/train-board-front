@@ -1,13 +1,13 @@
-const remarksHelper = name => {
-  const trimmedName = name.trim();
-  if (trimmedName.indexOf("E") > -1) {
+const remarksHelper = remark => {
+  const trimmedRemark = remark.trim();
+  if (trimmedRemark.indexOf("E") > -1) {
     return "green";
   }
-  switch (trimmedName) {
+  switch (trimmedRemark) {
     case "On Time":
       return "green";
     case "Boarding":
-      return "green";
+      return "green boarding";
     case "Arrived":
       return "green";
     default:
