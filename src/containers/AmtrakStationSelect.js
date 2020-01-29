@@ -92,7 +92,7 @@ class StationSelect extends Component {
                 San Diego Santa Fe Depot
               </option>
             </select>
-            <button type="button" id="searchBtn" onClick={this.onSubmitAmtrak}>
+            <button type="button" id="search-btn" onClick={this.onSubmitAmtrak}>
               See This Station
             </button>
           </div>
