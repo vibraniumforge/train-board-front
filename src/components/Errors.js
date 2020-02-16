@@ -1,7 +1,6 @@
 import React from "react";
 
 const Errors = props => {
-  console.log(props);
   return (
     <div id="errors">
       <textarea
