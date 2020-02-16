@@ -1,0 +1,114 @@
+.default-amtrak-long-distance {
+  color: blue;
+  background-color: gray;
+}
+
+.default-amtrak-medium-distance {
+  color: gray;
+  background-color: blue;
+}
+
+.pacific-surfliner {
+  background-color: royalblue;
+  color: whitesmoke;
+}
+
+.cascades {
+  background-color: seagreen;
+  color: whitesmoke;
+}
+
+.capitol-corridor {
+  background-color: navy;
+  color: gold;
+}
+
+.san-joaquin {
+  color: seagreen;
+  background-color: white;
+}
+
+.river-runner {
+  color: blue;
+  background-color: green;
+}
+
+.northeast-regional {
+  color: blue;
+  background-color: red;
+}
+
+.acela-express {
+  color: red;
+  background-color: blue;
+}
+
+.silver-services {
+  color: white;
+  background-color: silver;
+}
+
+.railjet {
+  color: white;
+  background-color: red;
+}
+
+.palmetto {
+  color: white;
+  background-color: navy;
+}
+
+.keystone {
+  color: yellow;
+  background-color: darkblue;
+}
+
+.empire-service {
+  color: blue;
+  background-color: orange;
+}
+
+.midwest {
+  color: black;
+  background-color: white;
+}
+
+.maple-leaf {
+  color: white;
+  background-color: red;
+}
+
+.eurostar {
+  color: yellow;
+  background-color: grey;
+}
+
+.thalys {
+  color: white;
+  background-color: maroon;
+}
+
+.tgv {
+  color: whitesmoke;
+  background-color: blue;
+}
+
+.euro-night {
+  color: black;
+  background-color: white;
+}
+
+.euro-city {
+  color: black;
+  background-color: white;
+}
+
+.inter-city {
+  color: red;
+  background-color: white;
+}
+
+.inter-city-express {
+  color: gray;
+  background-color: white;
+}
