@@ -20,7 +20,10 @@ class StationSelect extends Component {
   }
 
   shouldComponentUpdate = nextProps => {
-    if (this.props.trains === nextProps.trains) {
+    if (
+      this.props.trains.length === nextProps.trains.length &&
+      this.props.trains[0] === nextProps.trains[0]
+    ) {
       return false;
     } else {
       return true;
