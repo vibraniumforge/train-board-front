@@ -14,30 +14,27 @@ code {
 
 #navbar {
   background-color: navy;
-  height: 40px;
   padding: 10px;
-  text-decoration: none;
   font-size: 20px;
   text-align: center;
   font-weight: bold;
 }
 
-ul {
-  list-style-type: none;
-  margin: 10px;
-}
-
 li {
-  display: inline;
+  list-style-type: none;
 }
 
-li a {
-  text-align: center;
-  margin: 10px;
+#navbar a {
+  margin: 16px;
   color: red;
+  text-decoration: none;
 }
 
-li a:hover {
+#navbar a.selected {
+  border-bottom: 3px solid red;
+}
+
+#navbar a:hover {
   background-color: powderblue;
 }
 
@@ -83,12 +80,12 @@ p {
 }
 
 form input {
-  width: 300px;
+  width: 200px;
   height: 50px;
   font-size: 16px;
   margin: 10px;
   border: 20px transparent;
-  font-weight: bold;
+  /* display: inline; */
 }
 
 #new-train {
@@ -144,9 +141,10 @@ button {
   background-color: navy;
   color: red;
   font-size: 20px;
+  font-weight: bold;
 }
 
-.submit-btn {
+#submit {
   margin: 10px;
   background-color: navy;
   color: red;
@@ -168,14 +166,50 @@ button {
 }
 
 .errors {
-  border: 5px solid red;
+  border: 2px solid red;
 }
 
 .hidden {
   visibility: hidden;
 }
 
-/* .display-item {
-  color: yellow;
-  background-color: black;
-} */
+.explanation {
+  padding: 20px;
+}
+
+.error-message {
+  color: #cc0000;
+  margin-bottom: 12px;
+  min-height: 1rem;
+  max-height: 1rem;
+}
+
+.error-message-hidden {
+  visibility: hidden;
+  color: #cc0000;
+  margin-bottom: 12px;
+  min-height: 1rem;
+  max-height: 1rem;
+}
+
+.input-row {
+  text-align: center;
+}
+
+.col-1 {
+  display: inline-block;
+  width: 25%;
+  overflow: hidden;
+}
+
+.col-2 {
+  display: inline-block;
+  width: 25%;
+  overflow: hidden;
+}
+
+.col-3 {
+  display: inline-block;
+  width: 25%;
+  overflow: hidden;
+}
