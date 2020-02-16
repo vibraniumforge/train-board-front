@@ -5,8 +5,11 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import { serviceHelper } from "../helpers/serviceHelper";
+import { serviceClassHelper } from "../helpers/serviceClassHelper";
 import { remarksHelper } from "../helpers/remarksHelper";
+import { remarksClassHelper } from "../helpers/remarksClassHelper";
 import { timeHelper } from "../helpers/timeHelper";
+import { timeHelper24 } from "../helpers/timeHelper24";
 import { stationHelper } from "../helpers/stationHelper";
 
 import {
@@ -36,14 +39,6 @@ class UserBoard extends Component {
     }
   }
 
-  shouldComponentUpdate = nextProps => {
-    if (this.props.userTrains === nextProps.userTrains) {
-      return false;
-    } else {
-      return true;
-    }
-  };
-
   onDeleteTrain = e => {
     e.preventDefault();
     this.props.deleteTrain(e.target.dataset.id);
@@ -56,79 +51,72 @@ class UserBoard extends Component {
   };
 
   render() {
-    const trainsInfo =
-      this.props.userTrains.length > 0 &&
-      this.props.userTrains.map(train => {
-        return train.trainno.trim() ? (
-          <tr key={train.id}>
-            <td>{train.trainno}</td>
-            <td>{serviceHelper(train.service)}</td>
-            <td>{stationHelper(train.destination)}</td>
-            <td>{stationHelper(train.origin)}</td>
-            <td>{timeHelper(train.scheduled)}</td>
-            <td>{timeHelper(train.scheduled24)}</td>
-            <td>{timeHelper(train.newtime)}</td>
-            <td>{timeHelper(train.newtime24)}</td>
-            <td className={remarksHelper(train.remarks_boarding)}>
-              {train.remarks_boarding}
-            </td>
-            <td>
-              <button
-                type="button"
-                data-id={train.id}
-                className="board-button"
-                onClick={e => this.onUpdateTrain(e)}
-              >
-                Edit
-              </button>
-            </td>
-            <td>
-              <button
-                type="button"
-                data-id={train.id}
-                className="board-button"
-                onClick={e => this.onDeleteTrain(e)}
-              >
-                Delete
-              </button>
-            </td>
-            <td>
-              <LikeButton />
-            </td>
-          </tr>
-        ) : null;
-      });
+    const trainsInfo = this.props.userTrains.map((train, index) => {
+      return train.trainno.trim() ? (
+        <tr key={index}>
+          <td>{train.trainno}</td>
+          <td className={serviceClassHelper(train.service)}>
+            {" "}
+            {serviceHelper(train.service)}
+          </td>
+          <td>{stationHelper(train.destination)}</td>
+          <td>{stationHelper(train.origin)}</td>
+          <td>{timeHelper(train.scheduled, train.scheduled24)}</td>
+          <td>{timeHelper24(train.scheduled24)}</td>
+          <td>{timeHelper(train.newtime, train.newtime24)}</td>
+          <td>{timeHelper24(train.newtime24)}</td>
+          <td className={remarksClassHelper(train.remarks_boarding)}>
+            {remarksHelper(train.remarks_boarding)}
+          </td>
+          <td>
+            <button
+              type="button"
+              data-id={train.id}
+              className="board-button"
+              onClick={e => this.onUpdateTrain(e)}
+            >
+              Edit
+            </button>
+            <button
+              type="button"
+              data-id={train.id}
+              className="board-button"
+              onClick={e => this.onDeleteTrain(e)}
+            >
+              Delete
+            </button>
+          </td>
+          <td>
+            <LikeButton />
+          </td>
+        </tr>
+      ) : null;
+    });
     return (
       <React.Fragment>
         <div>
-          <table>
-            <thead>
-              <Time
-                stationName={"My Train Board"}
-                timeZone={this.props.timeZone}
-              />
-              <tr>
-                {/* <th colSpan="2">{this.state.time}</th>
-                <th />
-                <th colSpan="3">My Train Board</th>
-                <th />
-                <th />
-                <th colSpan="2">{this.state.time24h}</th> */}
-              </tr>
-              <tr>
-                <th>Train Number</th>
-                <th>Train Name</th>
-                <th>Destination</th>
-                <th>Origin</th>
-                <th>Scheduled Time</th>
-                <th>Scheduled - 24h</th>
-                <th>New Time</th>
-                <th>New Time - 24h</th>
-                <th>Remarks</th>
-              </tr>
-            </thead>
-            <tbody id="train-board">{trainsInfo}</tbody>
-          </table>
+          {trainsInfo.length > 0 ? (
+            <table>
+              <thead>
+                <Time
+                  stationName={"My Train Board"}
+                  timeZone={this.props.timeZone}
+                />
+                <tr>
+                  <th>Train Number</th>
+                  <th>Train Name</th>
+                  <th>Destination</th>
+                  <th>Origin</th>
+                  <th>Scheduled</th>
+                  <th>Scheduled - 24h</th>
+                  <th>New Time</th>
+                  <th>New Time - 24h</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody id="train-board">{trainsInfo}</tbody>
+            </table>
+          ) : null}
         </div>
       </React.Fragment>
     );
