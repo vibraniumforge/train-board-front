@@ -76,7 +76,7 @@ class StationResult extends Component {
           <ul className="center">{places}</ul>
         </div>
         <div>
-          {this.state.showBoard ? (
+          {this.state.showBoard && this.props.amtrakTrains.length > 0 ? (
             <AmtrakSearchBoard
               stationName={this.state.stationName}
               amtrakTrains={this.props.amtrakTrains}
