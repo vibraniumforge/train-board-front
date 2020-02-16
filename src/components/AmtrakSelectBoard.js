@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 
 import { serviceHelper } from "../helpers/serviceHelper";
+import { serviceClassHelper } from "../helpers/serviceClassHelper";
 import { remarksHelper } from "../helpers/remarksHelper";
+import { remarksClassHelper } from "../helpers/remarksClassHelper";
 import { timeHelper } from "../helpers/timeHelper";
+import { timeHelper24 } from "../helpers/timeHelper24";
 import { stationHelper } from "../helpers/stationHelper";
-
 import Time from "./Time.js";
 
 class AmtrakSelectBoard extends Component {
@@ -33,15 +35,17 @@ class AmtrakSelectBoard extends Component {
         return train.trainno.trim() ? (
           <tr key={index}>
             <td>{train.trainno}</td>
-            <td>{serviceHelper(train.service)}</td>
+            <td className={serviceClassHelper(train.service)}>
+              {serviceHelper(train.service)}
+            </td>
             <td>{stationHelper(train.destination)}</td>
             <td>{stationHelper(train.origin)}</td>
-            <td>{timeHelper(train.scheduled)}</td>
-            <td>{timeHelper(train.scheduled24)}</td>
-            <td>{timeHelper(train.newtime)}</td>
-            <td>{timeHelper(train.newtime24)}</td>
-            <td className={remarksHelper(train.remarks_boarding)}>
-              {serviceHelper(train.remarks_boarding)}
+            <td>{timeHelper(train.scheduled, train.scheduled24)}</td>
+            <td>{timeHelper24(train.scheduled24)}</td>
+            <td>{timeHelper(train.newtime, train.newtime24)}</td>
+            <td>{timeHelper24(train.newtime24)}</td>
+            <td className={remarksClassHelper(train.remarks_boarding)}>
+              {remarksHelper(train.remarks_boarding)}
             </td>
           </tr>
         ) : null;
@@ -60,7 +64,7 @@ class AmtrakSelectBoard extends Component {
                 <th>Train Name</th>
                 <th>Destination</th>
                 <th>Origin</th>
-                <th>Scheduled Time</th>
+                <th>Scheduled</th>
                 <th>Scheduled - 24h</th>
                 <th>New Time</th>
                 <th>New Time - 24h</th>
