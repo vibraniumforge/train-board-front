@@ -8,6 +8,7 @@ import thunk from "redux-thunk";
 
 import rootReducer from "./reducers/index";
 import "./index.css";
+import "./services.css";
 import App from "./App";
 
 // const store = createStore(
