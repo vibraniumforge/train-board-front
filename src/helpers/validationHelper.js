@@ -1,27 +1,65 @@
-const validationHelper = (inputFormField, inputValue) => {
-  const value = inputValue.trim();
-  const formField = inputFormField.trim();
-  switch (formField) {
-    case "destination":
-      return value.length === 0 ? "errors" : "";
-    case "newtime":
-      return ![0, 4].includes(value.length) ? "errors" : "";
-    case "newtime24":
-      return ![0, 4].includes(value.length) ? "errors" : "";
-    case "origin":
-      return value.length === 0 ? "errors" : "";
-    case "remarks_boarding":
-      return value.length === 0 ? "errors" : "";
-    case "scheduled":
-      return value.length !== 4 ? "errors" : "";
-    case "scheduled24":
-      return value.length !== 4 ? "errors" : "";
-    case "service":
-      return value.length === 0 ? "errors" : "";
-    case "trainno":
-      return value.length === 0 ? "errors" : "";
-    default:
-      return "";
+const validationHelper = newTrain => {
+  for (let key in newTrain) {
+    // console.log(key);
+    switch (key) {
+      case "destination":
+        if (newTrain.destination.length === 0) {
+          return false;
+        } else {
+          break;
+        }
+      case "newtime":
+        if (![0, 4].includes(newTrain.newtime.length)) {
+          return false;
+        } else {
+          break;
+        }
+      case "newtime24":
+        if (![0, 4].includes(newTrain.newtime24.length)) {
+          return false;
+        } else {
+          break;
+        }
+      case "origin":
+        if (newTrain.origin.length === 0) {
+          return false;
+        } else {
+          break;
+        }
+      case "remarks_boarding":
+        if (newTrain.remarks_boarding.length === 0) {
+          return false;
+        } else {
+          break;
+        }
+      case "scheduled":
+        if (newTrain.scheduled.length === 0) {
+          return false;
+        } else {
+          break;
+        }
+      case "scheduled24":
+        if (newTrain.scheduled24.length === 0) {
+          return false;
+        } else {
+          break;
+        }
+      case "service":
+        if (newTrain.service.length === 0) {
+          return false;
+        } else {
+          break;
+        }
+      case "trainno":
+        if (newTrain.trainno.length === 0) {
+          return false;
+        } else {
+          break;
+        }
+      default:
+        return false;
+    }
+    return true;
   }
 };
 
