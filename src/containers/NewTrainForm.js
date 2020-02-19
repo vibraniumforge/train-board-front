@@ -3,8 +3,8 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { createTrain } from "../actions/userTrainActions";
-import Errors from "../components/Errors";
-import { validationHelper } from "../helpers/validationHelper";
+// import Errors from "../components/Errors";
+// import { validationHelper } from "../helpers/validationHelper";
 
 class NewTrainForm extends Component {
   constructor(props) {
