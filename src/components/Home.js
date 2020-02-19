@@ -20,12 +20,12 @@ class Home extends Component {
           You can choose to view its board from there.
         </p>
         <p>
-          <strong>Create a new Train</strong> - Create your own train. A form
-          appears where you can enter information to save.
-        </p>
-        <p>
           <strong>View My Trains</strong> - Click here to view your existing
           trains.
+        </p>
+        <p>
+          <strong>Create a new Train</strong> - Create your own train. A form
+          appears where you can enter information to save.
         </p>
         <p>Choose one of the options above to begin!</p>
       </div>
