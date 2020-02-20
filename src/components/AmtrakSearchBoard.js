@@ -51,8 +51,27 @@ class AmtrakSearchBoard extends Component {
             </td>
           </tr>
         ) : null;
+        // if (train.trainno.trim()) {
+        //   return (
+        //     <tr key={index}>
+        //       <td>{train.trainno}</td>
+        //       <td className={serviceClassHelper(train.service)}>
+        //         {" "}
+        //         {serviceHelper(train.service)}
+        //       </td>
+        //       <td>{stationHelper(train.destination)}</td>
+        //       <td>{stationHelper(train.origin)}</td>
+        //       <td>{timeHelper(train.scheduled, train.scheduled24)}</td>
+        //       <td>{timeHelper24(train.scheduled24)}</td>
+        //     <td>{timeHelper(train.newtime, train.newtime24)}</td>
+        //     <td>{timeHelper24(train.newtime24)}</td>
+        //     <td className={remarksClassHelper(train.remarks_boarding)}>
+        //       {remarksHelper(train.remarks_boarding)}
+        //     </td>
+        //   </tr>
+        // );
+        // }
       });
-
     return (
       <React.Fragment>
         <table>
@@ -71,7 +90,7 @@ class AmtrakSearchBoard extends Component {
             </tr>
           </thead>
           <tbody id="train-board">
-            {trainsInfo.length > 0 ? (
+            {trainsInfo.length > 0 && trainsInfo[0] ? (
               trainsInfo
             ) : (
               <tr>
