@@ -90,8 +90,10 @@ const serviceClassHelper = service => {
     //   return "Hoosier State";
 
     // NE corridors
-    case "Acela Expr.":
-      return "acela-express";
+    case "Acela":
+      return "acela";
+    case "Acela N-Stop":
+      return "acela";
     case "NE Regional":
       return "default-amtrak-medium-distance";
     case "Keystone":
