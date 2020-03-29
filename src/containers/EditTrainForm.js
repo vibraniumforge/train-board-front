@@ -93,7 +93,7 @@ class TrainForm extends Component {
   render() {
     return (
       <React.Fragment>
-        <form id="edit-train" className="center">
+        <form id="edit-train" onSybmit={this.handleSubmit} className="center">
           <h4>Edit a train</h4>
           <div>
             <label htmlFor="train-destination">Destination</label>
@@ -229,14 +229,20 @@ class TrainForm extends Component {
             />
           </div>
           <br />
-          <button
+          {/* <button
             className="submit-btn"
             type="button"
             id="submit"
             onClick={this.handleSubmit}
           >
             Submit
-          </button>
+          </button> */}
+          <input
+            className="submit-btn"
+            type="submit"
+            id="submit"
+            value="Submit"
+          />
           <button
             className="clear-btn"
             type="button"
