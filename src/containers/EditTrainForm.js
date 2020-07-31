@@ -17,7 +17,7 @@ class TrainForm extends Component {
       scheduled: "",
       scheduled24: "",
       service: "",
-      trainno: ""
+      trainno: "",
     };
   }
 
@@ -35,16 +35,16 @@ class TrainForm extends Component {
         scheduled: this.props.trainToUpdate.scheduled,
         scheduled24: this.props.trainToUpdate.scheduled24,
         service: this.props.trainToUpdate.service,
-        trainno: this.props.trainToUpdate.trainno
+        trainno: this.props.trainToUpdate.trainno,
       });
     }
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     const updatedTrain = this.state;
     this.props.updateTrain(this.props.trainToUpdate.id, updatedTrain);
@@ -86,14 +86,14 @@ class TrainForm extends Component {
       scheduled: "",
       scheduled24: "",
       service: "",
-      trainno: ""
+      trainno: "",
     });
   };
 
   render() {
     return (
       <React.Fragment>
-        <form id="edit-train" onSybmit={this.handleSubmit} className="center">
+        <form id="edit-train" onSubmit={this.handleSubmit} className="center">
           <h4>Edit a train</h4>
           <div>
             <label htmlFor="train-destination">Destination</label>
@@ -268,15 +268,15 @@ class TrainForm extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   trainToUpdate: state.userTrains.trainToUpdate,
-  trainErrors: state.userTrains.trainErrors
+  trainErrors: state.userTrains.trainErrors,
 });
 
-const mapDispatchToProps = dispatch =>
+const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
-      updateTrain
+      updateTrain,
     },
     dispatch
   );
